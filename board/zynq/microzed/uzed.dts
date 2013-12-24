@@ -40,7 +40,7 @@
 		serial0 = &ps7_uart_1;
 	} ;
 	chosen {
-		bootargs = "console=ttyPS0,115200 root=/dev/ram rw ip=192.168.1.10 earlyprintk";
+		bootargs = "console=ttyPS0,115200 root=/dev/ram rw earlyprintk";
 		linux,stdout-path = "/axi@0/serial@e0001000";
 	} ;
 	cpus {
@@ -336,5 +336,30 @@
 			interrupts = < 0 7 4 >;
 			reg = < 0xf8007100 0x20 >;
 		} ;
+        axi-gpio@41200000 {
+            #gpio-cells = <2>;
+            compatible = "xlnx,axi-gpio-1.01.b", "xlnx,xps-gpio-1.00.a";
+            gpio-controller ;
+            interrupt-parent = <&ps7_scugic_0>;
+            interrupts = < 0 59 4 >;
+            reg = < 0x41200000 0x10000 >;
+            xlnx,all-inputs = <0x1>;
+            xlnx,all-inputs-2 = <0x0>;
+            xlnx,dout-default = <0x0>;
+            xlnx,dout-default-2 = <0x0>;
+            xlnx,gpio-width = <0x5>;
+            xlnx,gpio2-width = <0x8>;
+            xlnx,instance = "axi_gpio_0";
+            xlnx,interrupt-present = <0x1>;
+            xlnx,is-dual = <0x1>;
+            xlnx,tri-default = <0xffffffff>;
+            xlnx,tri-default-2 = <0xffffffff>;
+        } ;
+        generic-hdl@70000000 {
+            compatible = "generic-uio";
+            reg = <0x70000000 0x20000>;
+            interrupts = <0 58 1>;
+            interrupt-parent = <&ps7_scugic_0>;
+        } ;
 	} ;
 } ;
