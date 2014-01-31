@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_TINYRPC
+    bool "python-tinyrpc"
+    depends on BR2_PACKAGE_PYTHON
+    select BR2_PACKAGE_PYTHON_SETUPTOOLS
+    select BR2_HOST_PACKAGE_PYTHON_SETUPTOOLS
+    help
+      https://tinyrpc.readthedocs.org/

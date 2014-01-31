@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_WS4PY
+    bool "python-ws4py"
+    depends on BR2_PACKAGE_PYTHON
+    select BR2_PACKAGE_PYTHON_SETUPTOOLS
+    select BR2_HOST_PACKAGE_PYTHON_SETUPTOOLS
+    help
+      https://ws4py.readthedocs.org

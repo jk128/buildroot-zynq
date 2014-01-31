@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_WERKZEUG
+    bool "python-werkzeug"
+    depends on BR2_PACKAGE_PYTHON
+    select BR2_PACKAGE_PYTHON_SETUPTOOLS
+    select BR2_HOST_PACKAGE_PYTHON_SETUPTOOLS
+    help
+      http://werkzeug.pocoo.org/

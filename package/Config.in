@@ -406,6 +406,9 @@ source "package/python-pyzmq/Config.in"
 source "package/python-serial/Config.in"
 source "package/python-setuptools/Config.in"
 source "package/python-thrift/Config.in"
+source "package/python-tinyrpc/Config.in"
+source "package/python-werkzeug/Config.in"
+source "package/python-ws4py/Config.in"
 endmenu
 endif
 source "package/python3/Config.in"
