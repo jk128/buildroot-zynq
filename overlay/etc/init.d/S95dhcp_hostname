@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "Registering hostname with router (backgrounded)"
+udhcpc -x hostname:`hostname` &
+
+exit 0
