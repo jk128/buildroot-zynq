@@ -1,0 +1,15 @@
+#!/bin/sh
+
+BITFILENAME=zynq7020.bit.bin
+
+echo "Creating /dev/xdevcfg if it doesn't exist"
+[ -c /dev/xdevcfg ] || mknod /dev/xdevcfg c 259 0
+
+# quit if bitfile doesn't exist
+[ -f /lib/firmware/$BITFILENAME ] || exit
+
+# otherwise load the bitfile
+echo "Loading FPGA bitfile"
+cat /lib/firmware/$BITFILENAME > /dev/xdevcfg
+
+exit 0
