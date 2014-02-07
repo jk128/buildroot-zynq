@@ -1,0 +1,21 @@
+
+This does not build a complete working image for the zedboard target.
+
+You currently need to grab a boot.bin (FSBL and u-boot) from the Xilinx Zynq
+14.6-2013.2 release:
+
+http://www.wiki.xilinx.com/Zynq+14.6-2013.2+Release
+
+You need to make the following renamings when using this boot.bin:
+
+    zedboard.dtb -> devicetree.dtb
+    rootfs.ext2.gz.uboot -> uramdisk.image.gz
+    uImage (no renaming)
+
+Copy all the above to the root of a fat partition (first partition) and things
+will hopefully boot up ok as long as the compressed rootfs stays small (the
+current rootfs is about as big as possible; python2.7 can not be added).
+
+The current ramfs has very little free space. This can probably be
+reconfigured? Currently can only write a couple MB. You might be able to use
+/mnt for more space (fat).
