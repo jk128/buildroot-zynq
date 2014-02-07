@@ -1,0 +1,14 @@
+
+To build for microzed:
+
+    make microzed_defconfig
+    make menuconfig     # do any config changes...
+    make
+
+To build for zedboard:
+
+    make zedboard_defconfig
+    make menuconfig     # do any config changes...
+    make
+
+For both platforms, rootfs size may be very restricted.
